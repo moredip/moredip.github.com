@@ -436,15 +436,14 @@
                 
         <div class="slide">
         
-          <section>
-            <header>
-              <h1 id="me">Me</h1>
-            </header>
-            <p><img width="95%" src="http://moredip.github.com/business_card.jpg" />&lt;/img&gt;</p>
+          <!-- _S9SLIDE_  -->
+
+<div style="width:100%;margin-left:auto;margin-right:auto">
+<img style="padding:5%" width="90%" src="http://moredip.github.com/business_card.jpg" />
+</div>
 
 
 
-            </section>
         
         </div>
                 
@@ -456,7 +455,7 @@
             </header>
             <p>Frank is a system for running automated tests against an iOS (iPhone/iPad) app. </p>
 
-<p>It&rsquo;s like a very simple Selenium for native apps.</p>
+<p>It&rsquo;s like a very basic Selenium for native apps.</p>
 
 <p>It was created by my team so that we could write cucumber tests for the iPad application we&rsquo;re developing. </p>
 
@@ -486,17 +485,28 @@
             <header>
               <h1 id="how-does-frank-work">How does Frank work?</h1>
             </header>
-            <p><img src="http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png" alt="Frank Architecture" /></p>
+            <p>Frank consists of two parts:</p>
 
 <ul>
-  <li>Frank consists of two parts:
-    <ul>
-      <li>A small Objective C server is embedded in the app itself.</li>
-      <li>This server responds to simple HTTP commands sent by a driver (we&rsquo;re using ruby/cucumber).</li>
-    </ul>
-  </li>
-  <li>the testing framework sends commands in order to inspect the current state of the UI and to perform actions against the UI.</li>
+  <li>A small HTTP server written in Objective C is embedded into the app itself.</li>
+  <li>A driver which sends commands to that server (we&rsquo;re using ruby/cucumber for that).</li>
 </ul>
+
+<p>The testing framework sends commands to the embedded HTTP server in order to inspect the current state of the UI and to perform actions against the UI.</p>
+
+
+
+            </section>
+        
+        </div>
+                
+        <div class="slide">
+        
+          <section>
+            <header>
+              <h1 id="a-pretty-diagram">A pretty diagram</h1>
+            </header>
+            <p><img src="http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png" alt="Frank Architecture" /></p>
 
 
 
@@ -560,6 +570,8 @@ Then I should see "Welcome back, Pete"
 
 <p>It provides something like a crappy version of Firebug for your native iOS app. It allows you to inspect the state of the app, and to test selector paths as you start the process of automating a new section of your app&rsquo;s UI.</p>
 
+<p>By default it runs on <a href="http://localhost:37265/">http://localhost:37265/</a></p>
+
 
 
             </section>
@@ -577,8 +589,8 @@ Then I should see "Welcome back, Pete"
 <ul>
   <li>running Frank tests as part of our CI build</li>
   <li>Creating a QuickTime recording of each test run as a CI artifact </li>
-  <li>extending Cucumber to append timestamps to each scenario name <a href="https://github.com/moredip/Timestamped">on github</a></li>
-  <li>extending Cucumber to report which step is currently running (as opposed to which step just completed)  <a href="https://github.com/moredip/SlowHandCuke">on github</a></li>
+  <li>extending Cucumber to append timestamps to each scenario name [<a href="https://github.com/moredip/Timestamped">on github</a>]</li>
+  <li>extending Cucumber to report which step is currently running (as opposed to which step just completed) [<a href="https://github.com/moredip/SlowHandCuke">on github</a>]</li>
 </ul>
 
 
