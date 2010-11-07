@@ -83,7 +83,7 @@ In addition to the basics of testing our iPad app using Frank, we've also had su
 Thanks!
 =======
 
-* These slides are available [here](http://moredip.github.com/frank_lightning_talk.html)
+* These slides are available [here](http://moredip.github.com/frank_lightning_talk_slides.html)
 * [Frank is on github](http://github.com/moredip/frank)
 * [My initial blog post announcing Frank](http://blog.thepete.net/2010/07/frank-automated-acceptance-tests-for.html)
 * [A podcast about Frank recorded with some colleagues at ThoughtWorks](http://bit.ly/9cyMjT)
