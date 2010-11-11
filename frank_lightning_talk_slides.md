@@ -20,7 +20,7 @@ It was created by my team so that we could write cucumber tests for the iPad app
 
 Demo
 ====
-<a target="_blank" href="http://www.screencast.com/users/PeteHodgson/folders/Jing/media/0f35802c-684a-49bd-bb7a-b141e4d2c689">here's a demo of Frank in action</a>
+<a target="_blank" href="http://vimeo.com/16591775">here's a demo of Frank in action</a>
 
 How does Frank work?
 ===================
@@ -78,7 +78,7 @@ In addition to the basics of testing our iPad app using Frank, we've also had su
 * running Frank tests as part of our CI build
 * Creating a QuickTime recording of each test run as a CI artifact 
 * extending Cucumber to append timestamps to each scenario name \[[on github](https://github.com/moredip/Timestamped)\]
-* extending Cucumber to report which step is currently running (as opposed to which step just completed) \[[on github](https://github.com/moredip/SlowHandCuke)\]
+* extending Cucumber to report which step is currently running (as opposed to which step just completed) \[[on github](https://github.com/moredip/SlowHandCuke) and also [packaged as a gem](https://rubygems.org/gems/slowhandcuke)\]
 
 Thanks!
 =======
