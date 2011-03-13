@@ -436,18 +436,23 @@
                 
         <div class="slide">
         
-          <!-- _S9SLIDE_  -->
-
-
-
-
-<div style="width:100%;margin-left:auto;margin-right:auto">
-<img style="padding:5%" width="90%" src="http://moredip.github.com/business_card.jpg"/>
+          <section>
+            <header>
+              <h1>Who I am</h1>
+            </header>
+            <div style="width:100%;margin-left:auto;margin-right:auto">
+<img style="padding:5%" height="50%" src="http://moredip.github.com/business_card.jpg"/>
 </div>
 
 
+<hr/>
 
 
+<h2>Who are you?</h2>
+
+
+
+            </section>
         
         </div>
                 
@@ -457,9 +462,9 @@
             <header>
               <h1>What is Frank?</h1>
             </header>
-            <p>Frank is a system for running automated tests against an iOS (iPhone/iPad) app.</p>
+            <p>Frank is a system for running automated tests against an iOS app.</p>
 
-<p>It's like a very basic Selenium for native apps.</p>
+<p>It's like a very basic Selenium for iPhone and iPad apps.</p>
 
 
 
@@ -473,11 +478,20 @@
             <header>
               <h1>History of Frank</h1>
             </header>
-            <p>It was created by my team as part of an iPad product we were helping develop.</p>
+            <p>Created to help build an iPad product my team were delivering.</p>
 
-<p>No unit testing coverage, but we wanted some sort of test coverage.</p>
+<p>We wanted a safety net of automated tests, unit testing for iOS seemed really challenging.</p>
 
-<p>We examined some existing solutions, none were quite right.</p>
+<p>We examined some existing solutions ...</p>
+
+<ul>
+<li>UISpec</li>
+<li>Bromine/Brominet</li>
+<li>iCuke</li>
+</ul>
+
+
+<p>... but none were quite right.</p>
 
 
 
@@ -491,11 +505,14 @@
             <header>
               <h1>Why do we need acceptance testing for iOS apps?</h1>
             </header>
-            <p>"iPhone apps are so simple there's nothing to test".</p>
+            <p>"iPhone apps are so simple; there's nothing to test".     Really?</p>
 
-<p>Really?</p>
+<hr/>
+
 
 <p>Mobile app development is a very iterative process.</p>
+
+<p>Regression suites can help with performance and memory issues, not just bugs.</p>
 
 
 
@@ -570,6 +587,7 @@
             <ul>
 <li>A framework for Behavior Driven Development</li>
 <li>The aim is to allow you to express your tests in the language of the domain</li>
+<li>Most commonly used for describing the behavior of web apps</li>
 </ul>
 
 
@@ -596,7 +614,9 @@ And I should still be on the home screen
             <header>
               <h1>Frank tests are cucumber tests</h1>
             </header>
-            <pre><code>Given I have launched my app
+            <pre><code>Scenario: Successful log in
+
+Given I have launched my app
 When I fill in the "username" textbox with "pete"
 And I fill in the "password" textbox with "sekrit"
 And I touch the button marked "Logon"
@@ -680,9 +700,22 @@ end
             <header>
               <h1>iOS vs Web testing</h1>
             </header>
-            <h2>What's the same?</h2>
+            <h2>What's different?</h2>
 
-<h2>What's different?</h2>
+<ul>
+<li>State!</li>
+<li>Hardware constraints - memory, rotation, performance</li>
+<li>testing tooling is still immature, for now</li>
+</ul>
+
+
+<h2>What's the same?</h2>
+
+<ul>
+<li>Maintaining a big test suite is hard</li>
+<li>Seperation of business language from UI/technical language</li>
+</ul>
+
 
 
 
@@ -698,7 +731,11 @@ end
             </header>
             <h2>Learning from mature tooling (like Selenium!)</h2>
 
+<p>If all goes well, Frank has a lot of growing pains to look forward to!</p>
+
 <h2>Sharing tests across platforms</h2>
+
+<p>Business functionality doesn't care whether it's implemented on web, iOS, Android, whatever</p>
 
 
 

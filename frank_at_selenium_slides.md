@@ -3,36 +3,44 @@ title: Frank: Acceptance Testing for native iOS apps
 author: Pete Hodgson 
 %%%%%%%%
 
-!SLIDE
-
+#Who I am
 <div style="width:100%;margin-left:auto;margin-right:auto">
-<img style="padding:5%" width="90%" src="http://moredip.github.com/business_card.jpg"/>
+<img style="padding:5%" height="50%" src="http://moredip.github.com/business_card.jpg"/>
 </div>
-
+<hr/>
+## Who are you?
 
 # What is Frank?
 
-Frank is a system for running automated tests against an iOS (iPhone/iPad) app. 
+Frank is a system for running automated tests against an iOS app. 
 
-It's like a very basic Selenium for native apps.
+It's like a very basic Selenium for iPhone and iPad apps.
 
 
 # History of Frank
 
-It was created by my team as part of an iPad product we were helping develop.
+Created to help build an iPad product my team were delivering. 
 
-No unit testing coverage, but we wanted some sort of test coverage.
+We wanted a safety net of automated tests, unit testing for iOS seemed really challenging.
 
-We examined some existing solutions, none were quite right.
+We examined some existing solutions ...
+
+* UISpec
+* Bromine/Brominet
+* iCuke
+
+... but none were quite right.
 
 
 # Why do we need acceptance testing for iOS apps?
 
-"iPhone apps are so simple there's nothing to test". 
+"iPhone apps are so simple; there's nothing to test".     Really?
 
-Really?
+<hr/>
 
 Mobile app development is a very iterative process.
+
+Regression suites can help with performance and memory issues, not just bugs.
 
 
 Demo
@@ -66,6 +74,7 @@ How does it all work?
 
 * A framework for Behavior Driven Development
 * The aim is to allow you to express your tests in the language of the domain
+* Most commonly used for describing the behavior of web apps
 
 ---
 
@@ -79,6 +88,8 @@ An example cucumber scenario
 
 
 # Frank tests are cucumber tests
+
+    Scenario: Successful log in
 
     Given I have launched my app
     When I fill in the "username" textbox with "pete"
@@ -121,15 +132,24 @@ By default it runs on [http://localhost:37265/](http://localhost:37265/)
 
 #iOS vs Web testing
 
-## What's the same?
-
 ## What's different?
+* State!
+* Hardware constraints - memory, rotation, performance
+* testing tooling is still immature, for now
+
+## What's the same?
+* Maintaining a big test suite is hard 
+* Seperation of business language from UI/technical language
+
 
 
 #What's next?
 
 ## Learning from mature tooling (like Selenium!)
+If all goes well, Frank has a lot of growing pains to look forward to!
+
 ## Sharing tests across platforms
+Business functionality doesn't care whether it's implemented on web, iOS, Android, whatever
 
 
 
