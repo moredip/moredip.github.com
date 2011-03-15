@@ -12,7 +12,7 @@ author: Pete Hodgson
 
 # What is Frank?
 
-Frank is a system for running automated tests against an iOS app. 
+Frank is a system for running automated tests against a native iOS app. 
 
 It's like a very basic Selenium for iPhone and iPad apps.
 
@@ -40,45 +40,57 @@ We examined some existing solutions ...
 
 Mobile app development is a very iterative process.
 
-Regression suites can help with performance and memory issues, not just bugs.
+Test suites can help with performance and memory issues, not just bugs.
+
+Why wouldn't you want acceptance tests?
 
 
-Demo
-====
+
+# Demo
 <a target="_blank" href="http://vimeo.com/16591775">here's a demo of Frank in action</a>
 
 
-What's behind Frank?
-===================
+
+# How does it all work?
+
+![Frank Architecture](http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png)
+
+
+
+# What's behind Frank?
 
 Frank combines several existing open source tools
 
 * UISpec, a lower-level Objective-C testing library 
 * cocoahttpserver, a lightweight embeddable HTTP server
-* cucumber, and various little ruby gems
+* cucumber, and various ruby gems
 
-It's also spawned a few little things of its own
+It's also spawned a few little tools itself 
 
 * sim_launcher - launch arbitrary iOS apps in the simulator from the command line
 * slow_hand_cuke - better feedback on what cucumber step is currently executing 
 * timestamped_scenarios - add timestamps to cucumber output
 
 
-How does it all work?
-================
-
-![Frank Architecture](http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png)
-
 
 # Cucumber
 
 * A framework for Behavior Driven Development
-* The aim is to allow you to express your tests in the language of the domain
-* Most commonly used for describing the behavior of web apps
+* express business requirements in the language of the domain
+* automate verification of those requirements
+* most commonly used for describing the behavior of web apps
+
+
+
+# An example cucumber scenario
+
+
+Given ...<br/>
+When ...<br/>
+Then ...
 
 ---
-
-An example cucumber scenario
+<br/>
 
     Given I am logged in as a user with an empty shopping cart
     And I am on the home screen 
@@ -99,6 +111,16 @@ An example cucumber scenario
 
 [see here for further examples](https://github.com/moredip/Frank/blob/master/example/EmployeeAdmin/features/main.feature)
 
+#How do these steps work?
+
+Slightly scary regex's, and not-so-scary ruby 
+
+    Then /^I should see a "([^\"]*)" button$/ do |expected_mark|
+      check_element_exists("button marked:'#{expected_mark}'")
+    end
+
+Frank doesn't have a Webrat/Capybara equivalent, yet.
+
 
 # Standard Frank step definitions
 
@@ -115,13 +137,18 @@ Frank comes with a set of pre-defined steps. For example:
 
 [see here for the full set of core steps](https://github.com/moredip/Frank/blob/master/gem/lib/frank-cucumber/core_frank_steps.rb)
 
-#How do these steps work?
+# UISpec selectors
 
-for example:
+Web Testing: CSS or XPath
 
-    Then /^I should see a "([^\"]*)" button$/ do |expected_mark|
-      check_element_exists("button marked:'#{expected_mark}'")
-    end
+Frank: UISpec's UIScript syntax
+
+Syntax is a little funky, but servicable. 
+
+    tableView button marked:'Add'
+
+Allows traversal (e.g. all children, first child, parent) and filtering (e.g. just views of class UIButton, with accessibilityLabel 'foo')
+
 
 #Symbiote
 
@@ -129,12 +156,17 @@ The Frank server comes bundled with a single-page web app called Symbiote. It's 
 
 By default it runs on [http://localhost:37265/](http://localhost:37265/)
 
+Allows inspection of a running app's view heirarchy (i.e. DOM)
+
+Allows testing of selectors on a running app
+
 
 #iOS vs Web testing
 
 ## What's different?
 * State!
 * Hardware constraints - memory, rotation, performance
+* Only one platform!
 * testing tooling is still immature, for now
 
 ## What's the same?
@@ -151,6 +183,8 @@ If all goes well, Frank has a lot of growing pains to look forward to!
 ## Sharing tests across platforms
 Business functionality doesn't care whether it's implemented on web, iOS, Android, whatever
 
+## Other stuff
+Maybe moving beyond Cucumber and Ruby?
 
 
 #Thanks!
