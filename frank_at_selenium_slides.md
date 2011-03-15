@@ -3,19 +3,16 @@ title: Frank: Acceptance Testing for native iOS apps
 author: Pete Hodgson 
 %%%%%%%%
 
-#Who I am
+# Hi!
 <div style="width:100%;margin-left:auto;margin-right:auto">
 <img style="padding:5%" height="50%" src="http://moredip.github.com/business_card.jpg"/>
 </div>
-<hr/>
-## Who are you?
+
+TMI
 
 # What is Frank?
 
-Frank is a system for running automated tests against a native iOS app. 
-
 It's like a very basic Selenium for iPhone and iPad apps.
-
 
 # History of Frank
 
@@ -32,6 +29,7 @@ We examined some existing solutions ...
 ... but none were quite right.
 
 
+<!--
 # Why do we need acceptance testing for iOS apps?
 
 "iPhone apps are so simple; there's nothing to test".     Really?
@@ -43,7 +41,7 @@ Mobile app development is a very iterative process.
 Test suites can help with performance and memory issues, not just bugs.
 
 Why wouldn't you want acceptance tests?
-
+-->
 
 
 # Demo
@@ -119,7 +117,10 @@ Slightly scary regex's, and not-so-scary ruby
       check_element_exists("button marked:'#{expected_mark}'")
     end
 
+Can also call steps from within steps. Careful with that.
+
 Frank doesn't have a Webrat/Capybara equivalent, yet.
+
 
 
 # Standard Frank step definitions
@@ -190,8 +191,8 @@ Maybe moving beyond Cucumber and Ruby?
 #Thanks!
 
 * These slides are available [here](http://moredip.github.com/frank_at_selenium_slides.html)
-* We have a growing community centered around our [mailing list](http://groups.google.com/group/frank-discuss). Join us!
 * Frank is open source, and [available on github](http://github.com/moredip/frank)
+* We have a growing community centered around our [mailing list](http://groups.google.com/group/frank-discuss). Join us!
 * [My initial blog post announcing Frank](http://blog.thepete.net/2010/07/frank-automated-acceptance-tests-for.html)
 * [A podcast about Frank recorded with some colleagues at ThoughtWorks](http://bit.ly/9cyMjT)
 

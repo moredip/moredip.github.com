@@ -438,17 +438,14 @@
         
           <section>
             <header>
-              <h1>Who I am</h1>
+              <h1>Hi!</h1>
             </header>
             <div style="width:100%;margin-left:auto;margin-right:auto">
 <img style="padding:5%" height="50%" src="http://moredip.github.com/business_card.jpg"/>
 </div>
 
 
-<hr/>
-
-
-<h2>Who are you?</h2>
+<p>TMI</p>
 
 
 
@@ -462,9 +459,7 @@
             <header>
               <h1>What is Frank?</h1>
             </header>
-            <p>Frank is a system for running automated tests against an iOS app.</p>
-
-<p>It's like a very basic Selenium for iPhone and iPad apps.</p>
+            <p>It's like a very basic Selenium for iPhone and iPad apps.</p>
 
 
 
@@ -493,26 +488,20 @@
 
 <p>... but none were quite right.</p>
 
+<!--
+# Why do we need acceptance testing for iOS apps?
 
-
-            </section>
-        
-        </div>
-                
-        <div class="slide">
-        
-          <section>
-            <header>
-              <h1>Why do we need acceptance testing for iOS apps?</h1>
-            </header>
-            <p>"iPhone apps are so simple; there's nothing to test".     Really?</p>
+"iPhone apps are so simple; there's nothing to test".     Really?
 
 <hr/>
 
+Mobile app development is a very iterative process.
 
-<p>Mobile app development is a very iterative process.</p>
+Test suites can help with performance and memory issues, not just bugs.
 
-<p>Regression suites can help with performance and memory issues, not just bugs.</p>
+Why wouldn't you want acceptance tests?
+-->
+
 
 
 
@@ -538,6 +527,20 @@
         
           <section>
             <header>
+              <h1>How does it all work?</h1>
+            </header>
+            <p><img src="http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png" alt="Frank Architecture" /></p>
+
+
+
+            </section>
+        
+        </div>
+                
+        <div class="slide">
+        
+          <section>
+            <header>
               <h1>What's behind Frank?</h1>
             </header>
             <p>Frank combines several existing open source tools</p>
@@ -545,11 +548,11 @@
 <ul>
 <li>UISpec, a lower-level Objective-C testing library</li>
 <li>cocoahttpserver, a lightweight embeddable HTTP server</li>
-<li>cucumber, and various little ruby gems</li>
+<li>cucumber, and various ruby gems</li>
 </ul>
 
 
-<p>It's also spawned a few little things of its own</p>
+<p>It's also spawned a few little tools itself</p>
 
 <ul>
 <li>sim_launcher - launch arbitrary iOS apps in the simulator from the command line</li>
@@ -568,9 +571,15 @@
         
           <section>
             <header>
-              <h1>How does it all work?</h1>
+              <h1>Cucumber</h1>
             </header>
-            <p><img src="http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png" alt="Frank Architecture" /></p>
+            <ul>
+<li>A framework for Behavior Driven Development</li>
+<li>express business requirements in the language of the domain</li>
+<li>automate verification of those requirements</li>
+<li>most commonly used for describing the behavior of web apps</li>
+</ul>
+
 
 
 
@@ -582,18 +591,16 @@
         
           <section>
             <header>
-              <h1>Cucumber</h1>
+              <h1>An example cucumber scenario</h1>
             </header>
-            <ul>
-<li>A framework for Behavior Driven Development</li>
-<li>The aim is to allow you to express your tests in the language of the domain</li>
-<li>Most commonly used for describing the behavior of web apps</li>
-</ul>
-
+            <p>Given ...<br/>
+When ...<br/>
+Then ...</p>
 
 <hr />
 
-<p>An example cucumber scenario</p>
+<br/>
+
 
 <pre><code>Given I am logged in as a user with an empty shopping cart
 And I am on the home screen 
@@ -635,6 +642,29 @@ Then I should see "Welcome back, Pete"
         
           <section>
             <header>
+              <h1>How do these steps work?</h1>
+            </header>
+            <p>Slightly scary regex's, and not-so-scary ruby</p>
+
+<pre><code>Then /^I should see a "([^\"]*)" button$/ do |expected_mark|
+  check_element_exists("button marked:'#{expected_mark}'")
+end
+</code></pre>
+
+<p>Can also call steps from within steps. Careful with that.</p>
+
+<p>Frank doesn't have a Webrat/Capybara equivalent, yet.</p>
+
+
+
+            </section>
+        
+        </div>
+                
+        <div class="slide">
+        
+          <section>
+            <header>
               <h1>Standard Frank step definitions</h1>
             </header>
             <p>Frank comes with a set of pre-defined steps. For example:</p>
@@ -663,14 +693,18 @@ Then I should see "Welcome back, Pete"
         
           <section>
             <header>
-              <h1>How do these steps work?</h1>
+              <h1>UISpec selectors</h1>
             </header>
-            <p>for example:</p>
+            <p>Web Testing: CSS or XPath</p>
 
-<pre><code>Then /^I should see a "([^\"]*)" button$/ do |expected_mark|
-  check_element_exists("button marked:'#{expected_mark}'")
-end
+<p>Frank: UISpec's UIScript syntax</p>
+
+<p>Syntax is a little funky, but servicable.</p>
+
+<pre><code>tableView button marked:'Add'
 </code></pre>
+
+<p>Allows traversal (e.g. all children, first child, parent) and filtering (e.g. just views of class UIButton, with accessibilityLabel 'foo')</p>
 
 
 
@@ -687,6 +721,10 @@ end
             <p>The Frank server comes bundled with a single-page web app called Symbiote. It's like a very basic Firebug for iOS apps.</p>
 
 <p>By default it runs on <a href="http://localhost:37265/">http://localhost:37265/</a></p>
+
+<p>Allows inspection of a running app's view heirarchy (i.e. DOM)</p>
+
+<p>Allows testing of selectors on a running app</p>
 
 
 
@@ -705,6 +743,7 @@ end
 <ul>
 <li>State!</li>
 <li>Hardware constraints - memory, rotation, performance</li>
+<li>Only one platform!</li>
 <li>testing tooling is still immature, for now</li>
 </ul>
 
@@ -737,6 +776,10 @@ end
 
 <p>Business functionality doesn't care whether it's implemented on web, iOS, Android, whatever</p>
 
+<h2>Other stuff</h2>
+
+<p>Maybe moving beyond Cucumber and Ruby?</p>
+
 
 
             </section>
@@ -751,8 +794,8 @@ end
             </header>
             <ul>
 <li>These slides are available <a href="http://moredip.github.com/frank_at_selenium_slides.html">here</a></li>
-<li>We have a growing community centered around our <a href="http://groups.google.com/group/frank-discuss">mailing list</a>. Join us!</li>
 <li>Frank is open source, and <a href="http://github.com/moredip/frank">available on github</a></li>
+<li>We have a growing community centered around our <a href="http://groups.google.com/group/frank-discuss">mailing list</a>. Join us!</li>
 <li><a href="http://blog.thepete.net/2010/07/frank-automated-acceptance-tests-for.html">My initial blog post announcing Frank</a></li>
 <li><a href="http://bit.ly/9cyMjT">A podcast about Frank recorded with some colleagues at ThoughtWorks</a></li>
 </ul>
