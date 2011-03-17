@@ -88,16 +88,6 @@ When ...<br/>
 Then ...
 
 ---
-<br/>
-
-    Given I am logged in as a user with an empty shopping cart
-    And I am on the home screen 
-    When I click 'Checkout'
-    Then I should see 'You have nothing in your cart'
-    And I should still be on the home screen
-
-
-# Frank tests are cucumber tests
 
     Scenario: Successful log in
 
@@ -109,6 +99,7 @@ Then ...
 
 [see here for further examples](https://github.com/moredip/Frank/blob/master/example/EmployeeAdmin/features/main.feature)
 
+
 #How do these steps work?
 
 Slightly scary regex's, and not-so-scary ruby 
@@ -119,8 +110,7 @@ Slightly scary regex's, and not-so-scary ruby
 
 Can also call steps from within steps. Careful with that.
 
-Frank doesn't have a Webrat/Capybara equivalent, yet.
-
+Lots of precanned stuff (particularly for iPhone), similar to Webrat/Capybara.
 
 
 # Standard Frank step definitions
