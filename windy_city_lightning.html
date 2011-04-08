@@ -30,7 +30,7 @@
     <![endif]--> 
  
     <meta charset="utf-8" /> 
-    <title>Frank lightning talk</title>
+    <title>Frank lightning talk for WindyCityGo</title>
     <link href=' http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
     <meta name="author" content="Pete Hodgson" />
  
@@ -427,12 +427,36 @@
       <div class="slides"> 
         <div class="slide"> 
           <section class="middle"> 
-            <h2>Frank lightning talk</h2>
+            <h2>Frank lightning talk for WindyCityGo</h2>
             <p>Press <span class="key">&rarr;</span> key to advance.</p>
             <p>Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span></p>
           </section> 
         </div> 
         
+                
+        <div class="slide">
+        
+          <section>
+            <header>
+              <h1>Hi!</h1>
+            </header>
+            <p>I'm Pete Hodgson, I tweet as <a href="http://www.twitter.com/beingagile">@beingagile</a></p>
+
+<p>I want to run through a very quick talk about test automation for native iOS</p>
+
+<hr />
+
+<p>I'm a consultant at ThoughtWorks</p>
+
+<p>We're hosting a 'conversation space' today</p>
+
+<p>( oh and we're hiring )</p>
+
+
+
+            </section>
+        
+        </div>
                 
         <div class="slide">
         
@@ -475,12 +499,19 @@
             <p>Frank consists of two parts:</p>
 
 <ul>
-<li>A small HTTP server written in Objective C is embedded into the app itself.</li>
-<li>A driver which sends commands to that server (we're using ruby/cucumber for that).</li>
+<li>A small HTTP server written in Objective C which you compile directly into your native app.</li>
+<li>A driver which sends commands to that server (we use ruby/cucumber for that).</li>
 </ul>
 
 
-<p>The testing framework sends commands to the embedded HTTP server in order to inspect the current state of the UI and to perform actions against the UI.</p>
+<p>The testing framework sends commands to the embedded HTTP server in order to</p>
+
+<ul>
+<li><strong>inspect</strong> the current state of the UI</li>
+<li><strong>select</strong> specific UI elements and then</li>
+<li><strong>invoke</strong> actions against those elements</li>
+</ul>
+
 
 
 
@@ -509,10 +540,10 @@
               <h1>Cucumber</h1>
             </header>
             <ul>
-<li>A framework for Behavior Driven Development</li>
-<li>express business requirements in the language of the domain</li>
-<li>automate verification of those requirements</li>
-<li>most commonly used for describing the behavior of web apps</li>
+<li><p>A framework for Behavior Driven Development</p></li>
+<li><p>expresses business requirements in the language of the domain</p></li>
+<li><p>automates verification of those requirements</p></li>
+<li><p>most commonly used for describing the behavior of web apps</p></li>
 </ul>
 
 
@@ -559,9 +590,12 @@ Then I should see "Welcome back, Pete"
             </header>
             <p>The Frank server embedded in your app also serves up a simple single-web-page app called Symbiote.</p>
 
-<p>Symbiote uses some basic HTML forms and javascript to talk to your running iOS application using the exact same API which your cuke scripts use.</p>
+<ul>
+<li><p>Allows basic inspection of your running app's view heirarchy.</p></li>
+<li><p>Allows testing view selectors against your live app.</p></li>
+<li><p>Uses exact same API as the cucumber scripts - inspection, selection, invocation.</p></li>
+</ul>
 
-<p>It provides something like a crappy version of Firebug for your native iOS app. It allows you to inspect the state of the app, and to test selector paths as you start the process of automating a new section of your app's UI.</p>
 
 <p>By default it runs on <a href="http://localhost:37265/">http://localhost:37265/</a></p>
 
@@ -584,6 +618,7 @@ Then I should see "Welcome back, Pete"
 <li>restarting the simulator</li>
 <li>launching an arbitrary build into the simulator</li>
 <li>recording a test run using QuickTime</li>
+<li>reliably running a large test suite (45 mins long!) as part of a CI pipeline</li>
 </ul>
 
 

@@ -1,7 +1,22 @@
 %%%%%%%%
-title: Frank lightning talk
+title: Frank lightning talk for WindyCityGo
 author: Pete Hodgson 
 %%%%%%%%
+
+Hi!
+====
+
+I'm Pete Hodgson, I tweet as [@beingagile](http://www.twitter.com/beingagile)
+
+I want to run through a very quick talk about test automation for native iOS
+
+-----
+
+I'm a consultant at ThoughtWorks
+
+We're hosting a 'conversation space' today
+
+( oh and we're hiring )
 
 
 What is Frank?
@@ -22,10 +37,14 @@ How does Frank work?
 
 Frank consists of two parts:
 
-* A small HTTP server written in Objective C is embedded into the app itself.
-* A driver which sends commands to that server (we're using ruby/cucumber for that).
+* A small HTTP server written in Objective C which you compile directly into your native app.
+* A driver which sends commands to that server (we use ruby/cucumber for that).
 
-The testing framework sends commands to the embedded HTTP server in order to inspect the current state of the UI and to perform actions against the UI.
+The testing framework sends commands to the embedded HTTP server in order to 
+
+- **inspect** the current state of the UI 
+- **select** specific UI elements and then
+- **invoke** actions against those elements
 
 A pretty diagram
 ================
@@ -34,10 +53,13 @@ A pretty diagram
 
 # Cucumber
 
-* A framework for Behavior Driven Development
-* express business requirements in the language of the domain
-* automate verification of those requirements
-* most commonly used for describing the behavior of web apps
+- A framework for Behavior Driven Development
+
+- expresses business requirements in the language of the domain
+
+- automates verification of those requirements
+
+- most commonly used for describing the behavior of web apps
 
 
 
@@ -65,9 +87,12 @@ Symbiote
 
 The Frank server embedded in your app also serves up a simple single-web-page app called Symbiote.
 
-Symbiote uses some basic HTML forms and javascript to talk to your running iOS application using the exact same API which your cuke scripts use.
+- Allows basic inspection of your running app's view heirarchy.
 
-It provides something like a crappy version of Firebug for your native iOS app. It allows you to inspect the state of the app, and to test selector paths as you start the process of automating a new section of your app's UI.
+- Allows testing view selectors against your live app.
+
+- Uses exact same API as the cucumber scripts - inspection, selection, invocation.
+
 
 By default it runs on [http://localhost:37265/](http://localhost:37265/)
 
@@ -80,6 +105,7 @@ We've also had success in automating:
 * restarting the simulator
 * launching an arbitrary build into the simulator
 * recording a test run using QuickTime
+* reliably running a large test suite (45 mins long!) as part of a CI pipeline
 
 # Yay! Now what? 
 
