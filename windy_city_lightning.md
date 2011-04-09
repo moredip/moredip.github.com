@@ -32,37 +32,6 @@ Demo
 ====
 <a target="_blank" href="http://vimeo.com/21860134">here's a demo of Frank in action</a>
 
-How does Frank work?
-===================
-
-Frank consists of two parts:
-
-* A small HTTP server written in Objective C which you compile directly into your native app.
-* A driver which sends commands to that server (we use ruby/cucumber for that).
-
-The testing framework sends commands to the embedded HTTP server in order to 
-
-- **inspect** the current state of the UI 
-- **select** specific UI elements and then
-- **invoke** actions against those elements
-
-A pretty diagram
-================
-
-![Frank Architecture](http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png)
-
-# Cucumber
-
-- A framework for Behavior Driven Development
-
-- expresses business requirements in the language of the domain
-
-- automates verification of those requirements
-
-- most commonly used for describing the behavior of web apps
-
-
-
 # An example cucumber scenario
 
 
@@ -81,6 +50,26 @@ Then ...
     Then I should see "Welcome back, Pete"
 
 [see here for further examples](https://github.com/moredip/Frank/blob/master/example/EmployeeAdmin/features/main.feature)
+
+
+How does Frank work?
+===================
+
+Frank consists of two parts:
+
+* A small HTTP server written in Objective C which you compile directly into your native app.
+* A driver which sends commands to that server (we use ruby/cucumber for that).
+
+The testing framework sends commands to the embedded HTTP server in order to 
+
+- **inspect** the current state of the UI 
+- **select** specific UI elements and then
+- **invoke** actions against those elements
+
+A pretty diagram
+================
+
+![Frank Architecture](http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png)
 
 Symbiote
 ========

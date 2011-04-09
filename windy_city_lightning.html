@@ -494,6 +494,35 @@
         
           <section>
             <header>
+              <h1>An example cucumber scenario</h1>
+            </header>
+            <p>Given ...<br/>
+When ...<br/>
+Then ...</p>
+
+<hr />
+
+<pre><code>Scenario: Successful log in
+
+Given I have launched my app
+When I fill in the "username" textbox with "pete"
+And I fill in the "password" textbox with "sekrit"
+And I touch the button marked "Logon"
+Then I should see "Welcome back, Pete"
+</code></pre>
+
+<p><a href="https://github.com/moredip/Frank/blob/master/example/EmployeeAdmin/features/main.feature">see here for further examples</a></p>
+
+
+
+            </section>
+        
+        </div>
+                
+        <div class="slide">
+        
+          <section>
+            <header>
               <h1>How does Frank work?</h1>
             </header>
             <p>Frank consists of two parts:</p>
@@ -526,55 +555,6 @@
               <h1>A pretty diagram</h1>
             </header>
             <p><img src="http://github.com/moredip/frank/raw/master/doc/Frank%20Architecture.png" alt="Frank Architecture" /></p>
-
-
-
-            </section>
-        
-        </div>
-                
-        <div class="slide">
-        
-          <section>
-            <header>
-              <h1>Cucumber</h1>
-            </header>
-            <ul>
-<li><p>A framework for Behavior Driven Development</p></li>
-<li><p>expresses business requirements in the language of the domain</p></li>
-<li><p>automates verification of those requirements</p></li>
-<li><p>most commonly used for describing the behavior of web apps</p></li>
-</ul>
-
-
-
-
-            </section>
-        
-        </div>
-                
-        <div class="slide">
-        
-          <section>
-            <header>
-              <h1>An example cucumber scenario</h1>
-            </header>
-            <p>Given ...<br/>
-When ...<br/>
-Then ...</p>
-
-<hr />
-
-<pre><code>Scenario: Successful log in
-
-Given I have launched my app
-When I fill in the "username" textbox with "pete"
-And I fill in the "password" textbox with "sekrit"
-And I touch the button marked "Logon"
-Then I should see "Welcome back, Pete"
-</code></pre>
-
-<p><a href="https://github.com/moredip/Frank/blob/master/example/EmployeeAdmin/features/main.feature">see here for further examples</a></p>
 
 
 
